@@ -12,6 +12,8 @@ namespace BestPrinterBilling.Controllers
 {
     public class HomeController : BaseController
     {
+        [Authorize]
+
         [HelpDefinition]
         public IActionResult Index()
         {

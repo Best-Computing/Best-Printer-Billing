@@ -19,7 +19,11 @@ namespace BestPrinterBilling.Common
             Register,
             SuperAdmin,
             Role,
-            UserLogs
+            UserLogs,
+            DataEntry,
+            ImportExport,
+            WHMCS
+
         }
 
         public static SidebarMenu AddHeader(string name)
@@ -54,8 +58,35 @@ namespace BestPrinterBilling.Common
                     return new SidebarMenu
                     {
                         Type = SidebarMenuType.Link,
-                        Name = "Home",
-                        IconClassName = "fa fa-link",
+                        Name = "Dashboard",
+                        IconClassName = "fa fa-home ",
+                        URLPath = "/",
+                        LinkCounter = counter,
+                    };
+                case Module.DataEntry:
+                    return new SidebarMenu
+                    {
+                        Type = SidebarMenuType.Link,
+                        Name = "DataEntry",
+                        IconClassName = "fa fa-list-alt",
+                        URLPath = "/",
+                        LinkCounter = counter,
+                    };
+                case Module.ImportExport:
+                    return new SidebarMenu
+                    {
+                        Type = SidebarMenuType.Link,
+                        Name = "Import/Export",
+                        IconClassName = "fa fa-cloud",
+                        URLPath = "/",
+                        LinkCounter = counter,
+                    };
+                case Module.WHMCS:
+                    return new SidebarMenu
+                    {
+                        Type = SidebarMenuType.Link,
+                        Name = "WHMCS",
+                        IconClassName = "fa fa-industry",
                         URLPath = "/",
                         LinkCounter = counter,
                     };

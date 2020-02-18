@@ -6,11 +6,14 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using BestPrinterBilling.Models;
 using System.Runtime.CompilerServices;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BestPrinterBilling.Controllers
 {
+    [Authorize]
     public class BaseController : Controller
     {
+
         internal void AddBreadcrumb(string displayName, string urlPath)
         {
             List<Message> messages;

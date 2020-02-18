@@ -26,16 +26,16 @@ namespace BestPrinterBilling.ViewComponents
 
             sidebars.Add(ModuleHelper.AddHeader("MAIN NAVIGATION"));
             sidebars.Add(ModuleHelper.AddModule(ModuleHelper.Module.Home));
-            sidebars.Add(ModuleHelper.AddModule(ModuleHelper.Module.Error, Tuple.Create(0, 0, 1)));
-            sidebars.Add(ModuleHelper.AddModule(ModuleHelper.Module.About, Tuple.Create(0, 1, 0)));
-            sidebars.Add(ModuleHelper.AddModule(ModuleHelper.Module.Contact, Tuple.Create(1, 0, 0)));
-            sidebars.Add(ModuleHelper.AddTree("Account"));
+            sidebars.Add(ModuleHelper.AddModule(ModuleHelper.Module.DataEntry, Tuple.Create(0, 0, 0)));
+           sidebars.Add(ModuleHelper.AddModule(ModuleHelper.Module.ImportExport, Tuple.Create(0, 0, 0)));
+          sidebars.Add(ModuleHelper.AddModule(ModuleHelper.Module.WHMCS, Tuple.Create(0, 0, 0)));
+         /*   sidebars.Add(ModuleHelper.AddTree("Account"));
             sidebars.Last().TreeChild = new List<SidebarMenu>()
             {
                 ModuleHelper.AddModule(ModuleHelper.Module.Login),
                 ModuleHelper.AddModule(ModuleHelper.Module.Register, Tuple.Create(1, 1, 1)),
             };
-
+            */
             if (User.IsInRole("SuperAdmins"))
             {
                 sidebars.Add(ModuleHelper.AddTree("Administration"));

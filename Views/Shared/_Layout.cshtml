@@ -5,34 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Best Printer Billing</title>
     <environment names="Development">
-        <link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap.css" />
-        <link rel="stylesheet" href="~/lib/font-awesome/css/all.css" />
-        <link rel="stylesheet" href="~/lib/ionicons/css/ionicons.css" />
-        <link rel="stylesheet" href="~/lib/admin-lte/dist/css/BestPrinterBilling.css" />
-        <link rel="stylesheet" href="~/css/site.css" />
+        <link rel="stylesheet" href="~/lib/fontawesome-free/css/all.css" />
+        <link rel="stylesheet" href="~/lib/overlayScrollbars/css/OverlayScrollbars.min.css" />
+        <link rel="stylesheet" href="~/lib/css/adminlte.min.css" />
+        <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
     </environment>
     <environment names="Staging,Production">
-        <link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap.min.css" asp-append-version="true" />
-        <link rel="stylesheet" href="~/lib/font-awesome/css/all.min.css" asp-append-version="true" />
-        <link rel="stylesheet" href="~/lib/ionicons/css/ionicons.min.css" asp-append-version="true" />
-        <link rel="stylesheet" href="~/lib/admin-lte/dist/css/BestPrinterBilling.min.css" asp-append-version="true" />
-        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/lib/fontawesome-free/css/all.css" />
+        <link rel="stylesheet" href="~/lib/overlayScrollbars/css/OverlayScrollbars.min.css" />
+        <link rel="stylesheet" href="~/lib/css/adminlte.min.css" />
+        <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
     </environment>
 
-    <environment names="Development">
-        <script src="~/lib/jquery/jquery.js" asp-append-version="true"></script>
-        <script src="~/lib/bootstrap/js/bootstrap.js" asp-append-version="true"></script>
-        <script src="~/lib/admin-lte/dist/js/BestPrinterBilling.js" asp-append-version="true"></script>
-        <script src="~/lib/pace/pace.js" asp-append-version="true"></script>
-        <script src="~/js/site.js" asp-append-version="true"></script>
-    </environment>
-    <environment names="Staging,Production">
-        <script src="~/lib/jquery/jquery.min.js" asp-append-version="true"></script>
-        <script src="~/lib/bootstrap/js/bootstrap.min.js" asp-append-version="true"></script>
-        <script src="~/lib/admin-lte/dist/js/BestPrinterBilling.min.js" asp-append-version="true"></script>
-        <script src="~/lib/pace/pace.min.js" asp-append-version="true"></script>
-        <script src="~/js/site.min.js" asp-append-version="true"></script>
-    </environment>
 </head>
 <body class="hold-transition sidebar-mini">
     <div class="wrapper">
@@ -79,5 +63,50 @@
         //useSubmitClass();
         useDeleteConfirmation();
     </script>
+
+    <environment names="Development">
+        <!-- jQuery -->
+        <script src="~/lib/jquery/jquery.min.js"></script>
+        <!-- Bootstrap -->
+        <script src="~/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <!-- overlayScrollbars -->
+        <script src="~/lib/overlayScrollbars/js/OverlayScrollbars.min.js"></script>
+        <!-- AdminLTE App -->
+        <script src="~/lib/js/adminlte.js"></script>
+
+        <!-- PAGE PLUGINS -->
+        <!-- jQuery Mapael -->
+        <script src="~/lib/jquery-mousewheel/jquery.mousewheel.js"></script>
+        <script src="~/lib/raphael/raphael.min.js"></script>
+        <script src="~/libs/jquery-mapael/jquery.mapael.min.js"></script>
+        <script src="~/lib/jquery-mapael/maps/usa_states.js"></script>
+        <!-- ChartJS -->
+        <script src="~/lib/chart.js/Chart.min.js"></script>
+
+        <!-- PAGE SCRIPTS -->
+        <script src="~/lib/js/pages/dashboard2.js"></script>
+    </environment>
+    <environment names="Staging,Production">
+        <     <!-- jQuery -->
+        <script src="~/lib/jquery/jquery.min.js"></script>
+        <!-- Bootstrap -->
+        <script src="~/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <!-- overlayScrollbars -->
+        <script src="~/lib/overlayScrollbars/js/OverlayScrollbars.min.js"></script>
+        <!-- AdminLTE App -->
+        <script src="~/lib/js/adminlte.js"></script>
+
+        <!-- PAGE PLUGINS -->
+        <!-- jQuery Mapael -->
+        <script src="~/lib/jquery-mousewheel/jquery.mousewheel.js"></script>
+        <script src="~/lib/raphael/raphael.min.js"></script>
+        <script src="~/libs/jquery-mapael/jquery.mapael.min.js"></script>
+        <script src="~/lib/jquery-mapael/maps/usa_states.js"></script>
+        <!-- ChartJS -->
+        <script src="~/lib/chart.js/Chart.min.js"></script>
+
+        <!-- PAGE SCRIPTS -->
+        <script src="~/lib/js/pages/dashboard2.js"></script>
+    </environment>
 </body>
 </html>
