@@ -67,7 +67,7 @@ namespace BestPrinterBilling.Common
                     return new SidebarMenu
                     {
                         Type = SidebarMenuType.Link,
-                        Name = "DataEntry",
+                        Name = "Data Entry",
                         IconClassName = "fa fa-list-alt",
                         URLPath = "/",
                         LinkCounter = counter,
