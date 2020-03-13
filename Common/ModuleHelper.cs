@@ -69,7 +69,7 @@ namespace BestPrinterBilling.Common
                         Type = SidebarMenuType.Link,
                         Name = "Data Entry",
                         IconClassName = "fa fa-list-alt",
-                        URLPath = "/",
+                        URLPath = "/TblMachines",
                         LinkCounter = counter,
                     };
                 case Module.ImportExport:

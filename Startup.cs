@@ -12,6 +12,9 @@ using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using BestPrinterBilling.Models;
+using BestPrinterBilling.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace BestPrinterBilling
 {
@@ -29,6 +32,9 @@ namespace BestPrinterBilling
         {
             services.AddAuthentication(AzureADDefaults.AuthenticationScheme)
                 .AddAzureAD(options => Configuration.Bind("AzureAd", options));
+
+            services.AddDbContext<bestprinterbillingdbContext>(options =>
+options.UseSqlServer(Configuration.GetConnectionString("bestprinterbillingdbconnection")));
 
             services.AddControllersWithViews(options =>
             {

@@ -1,0 +1,111 @@
+﻿@model IEnumerable<BestPrinterBilling.Models.TblMachine>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<a asp-action="Create">Create New Entry</a>
+
+<table class="table" >
+    <thead>
+        <tr align="center">
+            <th>
+                Branch
+            </th>
+            <th>
+                Customer
+            </th>
+            <th>
+                Serial Number
+            </th>
+            <th>
+                Device Model
+            </th>
+
+            <th>
+                Opening Black Copies
+            </th>
+            <th>
+                Opening Colour Copies
+            </th>
+            <th>
+                Opening Large Impressions
+            </th>
+            <th>
+                Closing Black Copies
+            </th>
+            <th>
+                Closing Colour Copies
+            </th>
+            <th>
+                Closing Large Impressions
+            </th>
+            <th>
+                Print count for this period
+            </th>
+            <th>
+                Total Charge
+            </th>
+            <th>
+                Minimum Charges
+            </th>
+
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Location)
+            </td>
+            <td>
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Serialnum)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Devicemodel)
+            </td>
+            
+            <td>
+                @Html.DisplayFor(modelItem => item.CurRdsBw)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CurRdsClr)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CurRdsClrlrg)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PrevRdsBw)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PrevRdsClr)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CurRdsClrlrg)
+            </td>
+            <td>
+                <!--total print count to this period-->
+            </td>
+            <td>
+              <!--total to charge-->
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MinCharge)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsActive)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.MachineId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.MachineId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.MachineId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
