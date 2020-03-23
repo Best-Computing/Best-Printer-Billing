@@ -3,109 +3,125 @@
 @{
     ViewData["Title"] = "Index";
 }
-
-<a asp-action="Create">Create New Entry</a>
-
-<table class="table" >
-    <thead>
-        <tr align="center">
-            <th>
-                Branch
-            </th>
-            <th>
-                Customer
-            </th>
-            <th>
-                Serial Number
-            </th>
-            <th>
-                Device Model
-            </th>
-
-            <th>
-                Opening Black Copies
-            </th>
-            <th>
-                Opening Colour Copies
-            </th>
-            <th>
-                Opening Large Impressions
-            </th>
-            <th>
-                Closing Black Copies
-            </th>
-            <th>
-                Closing Colour Copies
-            </th>
-            <th>
-                Closing Large Impressions
-            </th>
-            <th>
-                Print count for this period
-            </th>
-            <th>
-                Total Charge
-            </th>
-            <th>
-                Minimum Charges
-            </th>
+<script type="text/javascript" src="https://cdn.datatables.net/r/bs-3.3.5/jqc-1.11.3,dt-1.10.8/datatables.min.js"></script>
+<script type="text/javascript" src="~/js/datatables.js"></script>
 
 
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Location)
-            </td>
-            <td>
-            </td>
+    <h3>
+        <a asp-action="Create" class="btn btn-success"><i class="fa fa-plus"></i> Add new entry </a>
+        <a asp-action="Create" class="btn btn-success"><i class="fa fa-cloud"></i> Export to Xero</a>
+    </h3>
 
-            <td>
-                @Html.DisplayFor(modelItem => item.Serialnum)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Devicemodel)
-            </td>
-            
-            <td>
-                @Html.DisplayFor(modelItem => item.CurRdsBw)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CurRdsClr)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CurRdsClrlrg)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PrevRdsBw)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PrevRdsClr)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CurRdsClrlrg)
-            </td>
-            <td>
-                <!--total print count to this period-->
-            </td>
-            <td>
-              <!--total to charge-->
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.MinCharge)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IsActive)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.MachineId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.MachineId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.MachineId">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+<section class="content">
+    <div class="box">
+
+        <div class="box-body">
+            <table id="tbllist" class="table table-hover">
+
+                <thead>
+                    <tr align="center">
+                        <th>
+                            Branch
+                        </th>
+                        <th>
+                            Customer
+                        </th>
+                        <th>
+                            Serial Number
+                        </th>
+                        <th>
+                            Device Model
+                        </th>
+
+                        <th>
+                            Opening Black Copies
+                        </th>
+                        <th>
+                            Opening Colour Copies
+                        </th>
+                        <th>
+                            Opening Large Impressions
+                        </th>
+                        <th>
+                            Closing Black Copies
+                        </th>
+                        <th>
+                            Closing Colour Copies
+                        </th>
+                        <th>
+                            Closing Large Impressions
+                        </th>
+                        <th>
+                            Print count for this period
+                        </th>
+                        <th>
+                            Total Charge
+                        </th>
+                        <th>
+                            Minimum Charges
+                        </th>
+
+
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Location)
+                            </td>
+                            <td>
+                            </td>
+
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Serialnum)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Devicemodel)
+                            </td>
+
+                            <td>
+                                @Html.DisplayFor(modelItem => item.CurRdsBw)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.CurRdsClr)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.CurRdsClrlrg)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.PrevRdsBw)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.PrevRdsClr)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.CurRdsClrlrg)
+                            </td>
+                            <td>
+                                <!--total print count to this period-->
+                            </td>
+                            <td>
+                                <!--total to charge-->
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.MinCharge)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.IsActive)
+                            </td>
+                            <td>
+                                <a asp-action="Edit" asp-route-id="@item.MachineId">Edit</a> |
+                                <a asp-action="Details" asp-route-id="@item.MachineId">Details</a> |
+                                <a asp-action="Delete" asp-route-id="@item.MachineId">Delete</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+ 
+    </section>
