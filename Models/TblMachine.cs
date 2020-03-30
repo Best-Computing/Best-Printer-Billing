@@ -32,5 +32,8 @@ namespace BestPrinterBilling.Models
         public string Location { get; set; }
         public string MinCharge { get; set; }
         public bool? IsActive { get; set; }
+        public string PrintCountBw { get; set; }
+        public string PrintCountColor { get; set; }
+        public string PrintCountLarge { get; set; }
     }
 }

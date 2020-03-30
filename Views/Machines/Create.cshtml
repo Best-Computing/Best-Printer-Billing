@@ -3,7 +3,10 @@
 @{
     ViewData["Title"] = "Create";
 }
-<h1>New Entry</h1>
+
+<h1>Create</h1>
+
+<h4>TblMachine</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -140,6 +143,21 @@
                 <span asp-validation-for="MinCharge" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="PrintCountBw" class="control-label"></label>
+                <input asp-for="PrintCountBw" class="form-control" />
+                <span asp-validation-for="PrintCountBw" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PrintCountColor" class="control-label"></label>
+                <input asp-for="PrintCountColor" class="form-control" />
+                <span asp-validation-for="PrintCountColor" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PrintCountLarge" class="control-label"></label>
+                <input asp-for="PrintCountLarge" class="form-control" />
+                <span asp-validation-for="PrintCountLarge" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
         </form>
@@ -150,6 +168,3 @@
     <a asp-action="Index">Back to List</a>
 </div>
 
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}

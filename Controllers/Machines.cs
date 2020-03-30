@@ -7,35 +7,25 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using BestPrinterBilling.Data;
 using BestPrinterBilling.Models;
-using Microsoft.AspNetCore.Authorization;
-using BestPrinterBilling.Common.Attributes;
 
-namespace BestPrinterBilling
+namespace BestPrinterBilling.Controllers
 {
-    [Authorize]
-   
-    public class TblMachinesController : Controller
+    public class Machines : Controller
     {
         private readonly bestprinterbillingdbContext _context;
 
-        public TblMachinesController(bestprinterbillingdbContext context)
+        public Machines(bestprinterbillingdbContext context)
         {
             _context = context;
         }
 
-        internal void AddPageHeader(string pageHeader = "", string pageDescription = "")
-        {
-            ViewBag.PageHeader = Tuple.Create(pageHeader, pageDescription);
-        }
-
-        // GET: TblMachines
+        // GET: Machines
         public async Task<IActionResult> Index()
         {
-            AddPageHeader("Data Entry", "");
             return View(await _context.TblMachine.ToListAsync());
         }
 
-        // GET: TblMachines/Details/5
+        // GET: Machines/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -53,18 +43,18 @@ namespace BestPrinterBilling
             return View(tblMachine);
         }
 
-        // GET: TblMachines/Create
+        // GET: Machines/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: TblMachines/Create
+        // POST: Machines/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("MachineId,Serialnum,Devicemodel,UserId,PriceBw,PriceClr,PriceClrlrg,PrevRdsBw,PrevRdsClr,PrevRdsClrlrg,CurRdsBw,CurRdsClr,CurRdsClrlrg,QtyBw,QtyClr,QtyClrlrg,PrevInvoiceId,PrevInvoiceTotal,CurInvoiceId,CurInvoiceTotal,Status,ContractStart,ContractEnd,CollectionMethod,Location,MinCharge,IsActive")] TblMachine tblMachine)
+        public async Task<IActionResult> Create([Bind("MachineId,Serialnum,Devicemodel,UserId,PriceBw,PriceClr,PriceClrlrg,PrevRdsBw,PrevRdsClr,PrevRdsClrlrg,CurRdsBw,CurRdsClr,CurRdsClrlrg,QtyBw,QtyClr,QtyClrlrg,PrevInvoiceId,PrevInvoiceTotal,CurInvoiceId,CurInvoiceTotal,Status,ContractStart,ContractEnd,CollectionMethod,Location,MinCharge,IsActive,PrintCountBw,PrintCountColor,PrintCountLarge")] TblMachine tblMachine)
         {
             if (ModelState.IsValid)
             {
@@ -75,7 +65,7 @@ namespace BestPrinterBilling
             return View(tblMachine);
         }
 
-        // GET: TblMachines/Edit/5
+        // GET: Machines/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -91,12 +81,12 @@ namespace BestPrinterBilling
             return View(tblMachine);
         }
 
-        // POST: TblMachines/Edit/5
+        // POST: Machines/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("MachineId,Serialnum,Devicemodel,UserId,PriceBw,PriceClr,PriceClrlrg,PrevRdsBw,PrevRdsClr,PrevRdsClrlrg,CurRdsBw,CurRdsClr,CurRdsClrlrg,QtyBw,QtyClr,QtyClrlrg,PrevInvoiceId,PrevInvoiceTotal,CurInvoiceId,CurInvoiceTotal,Status,ContractStart,ContractEnd,CollectionMethod,Location,MinCharge,IsActive")] TblMachine tblMachine)
+        public async Task<IActionResult> Edit(int id, [Bind("MachineId,Serialnum,Devicemodel,UserId,PriceBw,PriceClr,PriceClrlrg,PrevRdsBw,PrevRdsClr,PrevRdsClrlrg,CurRdsBw,CurRdsClr,CurRdsClrlrg,QtyBw,QtyClr,QtyClrlrg,PrevInvoiceId,PrevInvoiceTotal,CurInvoiceId,CurInvoiceTotal,Status,ContractStart,ContractEnd,CollectionMethod,Location,MinCharge,IsActive,PrintCountBw,PrintCountColor,PrintCountLarge")] TblMachine tblMachine)
         {
             if (id != tblMachine.MachineId)
             {
@@ -126,7 +116,7 @@ namespace BestPrinterBilling
             return View(tblMachine);
         }
 
-        // GET: TblMachines/Delete/5
+        // GET: Machines/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -144,7 +134,7 @@ namespace BestPrinterBilling
             return View(tblMachine);
         }
 
-        // POST: TblMachines/Delete/5
+        // POST: Machines/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

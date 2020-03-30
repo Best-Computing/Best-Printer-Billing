@@ -24,7 +24,7 @@ namespace BestPrinterBilling.Data
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseSqlServer("Server=tcp:bestprinterbilling-srv.database.windows.net,1433;Initial Catalog=bestprinterbilling-db;Persist Security Info=False;User ID=bpb-admin;Password=Dy6zjFS_bUHwwE!fAb5Fn*;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+                optionsBuilder.UseSqlServer("Data Source=tcp:bestprinterbilling-srv.database.windows.net,1433;Initial Catalog=bestprinterbilling-db;Persist Security Info=False;User ID=bpb-admin;Password=Dy6zjFS_bUHwwE!fAb5Fn*;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=3;");
             }
         }
 
@@ -99,6 +99,14 @@ namespace BestPrinterBilling.Data
                 entity.Property(e => e.PriceClr).HasColumnName("PRICE_CLR");
 
                 entity.Property(e => e.PriceClrlrg).HasColumnName("PRICE_CLRLRG");
+
+                entity.Property(e => e.PrintCountBw)
+                    .HasColumnName("PrintCountBW")
+                    .HasMaxLength(255);
+
+                entity.Property(e => e.PrintCountColor).HasMaxLength(255);
+
+                entity.Property(e => e.PrintCountLarge).HasMaxLength(255);
 
                 entity.Property(e => e.QtyBw).HasColumnName("QTY_BW");
 

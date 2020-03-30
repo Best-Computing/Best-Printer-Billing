@@ -67,7 +67,7 @@ namespace BestPrinterBilling.Common
                         Type = SidebarMenuType.Link,
                         Name = "Data Entry",
                         IconClassName = "fa fa-list-alt",
-                        URLPath = "/TblMachines",
+                        URLPath = "/Machines",
                         LinkCounter = counter,
                     };
                 

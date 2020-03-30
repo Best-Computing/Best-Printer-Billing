@@ -33,8 +33,8 @@ namespace BestPrinterBilling
             services.AddAuthentication(AzureADDefaults.AuthenticationScheme)
                 .AddAzureAD(options => Configuration.Bind("AzureAd", options));
 
-            services.AddDbContext<bestprinterbillingdbContext>(options =>
-options.UseSqlServer(Configuration.GetConnectionString("bestprinterbillingdbconnection")));
+           services.AddDbContext<bestprinterbillingdbContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("bestprinterbillingdbconnection")));
 
             services.AddControllersWithViews(options =>
             {
