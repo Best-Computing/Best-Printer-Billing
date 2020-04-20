@@ -14,11 +14,19 @@ namespace BestPrinterBilling.Controllers
     {
         private readonly bestprinterbillingdbContext _context;
 
+        
         public Machines(bestprinterbillingdbContext context)
         {
             _context = context;
         }
 
+     /*  public ActionResult MachineClientViewModel()
+        {
+            
+            MachineClientViewModel machineClientVM = new MachineClientViewModel();
+            machineClientVM.allMachines = _context
+        }
+      */
         // GET: Machines
         public async Task<IActionResult> Index()
         {

@@ -16,6 +16,7 @@ namespace BestPrinterBilling.Data
         {
         }
 
+        public virtual DbSet<TblLocation> TblLocation { get; set; }
         public virtual DbSet<TblMachine> TblMachine { get; set; }
         public virtual DbSet<TblUsers> TblUsers { get; set; }
 
@@ -24,12 +25,25 @@ namespace BestPrinterBilling.Data
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseSqlServer("Data Source=tcp:bestprinterbilling-srv.database.windows.net,1433;Initial Catalog=bestprinterbilling-db;Persist Security Info=False;User ID=bpb-admin;Password=Dy6zjFS_bUHwwE!fAb5Fn*;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=3;");
+                optionsBuilder.UseSqlServer("Data Source=tcp:bestprinterbilling-srv.database.windows.net,1433;Initial Catalog=bestprinterbilling-db;Persist Security Info=False;User ID=bpb-admin;Password=Dy6zjFS_bUHwwE!fAb5Fn*;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
             }
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<TblLocation>(entity =>
+            {
+                entity.HasKey(e => e.LocationId)
+                    .HasName("PK__TblLocat__E7FEA477A5C0BC63");
+
+                entity.Property(e => e.LocationId).HasColumnName("LocationID");
+
+                entity.Property(e => e.Location)
+                    .IsRequired()
+                    .HasMaxLength(255)
+                    .IsUnicode(false);
+            });
+
             modelBuilder.Entity<TblMachine>(entity =>
             {
                 entity.HasKey(e => e.MachineId)
@@ -119,6 +133,8 @@ namespace BestPrinterBilling.Data
                 entity.Property(e => e.Status)
                     .IsRequired()
                     .HasColumnName("STATUS");
+
+                entity.Property(e => e.Title).IsUnicode(false);
 
                 entity.Property(e => e.UserId).HasColumnName("USER_ID");
             });

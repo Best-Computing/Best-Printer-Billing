@@ -35,5 +35,6 @@ namespace BestPrinterBilling.Models
         public string PrintCountBw { get; set; }
         public string PrintCountColor { get; set; }
         public string PrintCountLarge { get; set; }
+        public string Title { get; set; }
     }
 }
