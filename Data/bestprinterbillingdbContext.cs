@@ -19,13 +19,14 @@ namespace BestPrinterBilling.Data
         public virtual DbSet<TblLocation> TblLocation { get; set; }
         public virtual DbSet<TblMachine> TblMachine { get; set; }
         public virtual DbSet<TblUsers> TblUsers { get; set; }
+        public virtual DbSet<TblUsersmachine> TblUsersmachine { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseSqlServer("Data Source=tcp:bestprinterbilling-srv.database.windows.net,1433;Initial Catalog=bestprinterbilling-db;Persist Security Info=False;User ID=bpb-admin;Password=Dy6zjFS_bUHwwE!fAb5Fn*;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+                optionsBuilder.UseSqlServer("Server=tcp:bestprinterbilling-srv.database.windows.net,1433;Initial Catalog=bestprinterbilling-db;Persist Security Info=False;User ID=bpb-admin;Password=Dy6zjFS_bUHwwE!fAb5Fn*;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
             }
         }
 
@@ -142,13 +143,11 @@ namespace BestPrinterBilling.Data
             modelBuilder.Entity<TblUsers>(entity =>
             {
                 entity.HasKey(e => e.UserId)
-                    .HasName("PK__tblUSERS__F3BEEBFF9AF1F5C3");
+                    .HasName("PK__tblUSERS__F3BEEBFF47D95564");
 
                 entity.ToTable("tblUSERS");
 
-                entity.Property(e => e.UserId)
-                    .HasColumnName("USER_ID")
-                    .ValueGeneratedNever();
+                entity.Property(e => e.UserId).HasColumnName("USER_ID");
 
                 entity.Property(e => e.Company)
                     .IsRequired()
@@ -171,13 +170,32 @@ namespace BestPrinterBilling.Data
                     .IsRequired()
                     .HasColumnName("PASSWORD");
 
-                entity.Property(e => e.Phone)
-                    .IsRequired()
-                    .HasColumnName("PHONE");
+                entity.Property(e => e.Phone).HasColumnName("PHONE");
 
                 entity.Property(e => e.Username)
                     .IsRequired()
                     .HasColumnName("USERNAME");
+            });
+
+            modelBuilder.Entity<TblUsersmachine>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.ToTable("tblUSERSMACHINE");
+
+                entity.Property(e => e.Description)
+                    .IsRequired()
+                    .HasColumnName("DESCRIPTION");
+
+                entity.Property(e => e.Model)
+                    .IsRequired()
+                    .HasColumnName("MODEL");
+
+                entity.Property(e => e.Serial)
+                    .IsRequired()
+                    .HasColumnName("SERIAL");
+
+                entity.Property(e => e.UserId).HasColumnName("USER_ID");
             });
 
             OnModelCreatingPartial(modelBuilder);

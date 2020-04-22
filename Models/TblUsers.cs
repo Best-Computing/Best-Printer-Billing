@@ -10,8 +10,8 @@ namespace BestPrinterBilling.Models
         public string Password { get; set; }
         public string ContactName { get; set; }
         public string Email { get; set; }
-        public bool? Isadmin { get; set; }
         public string Phone { get; set; }
         public string Company { get; set; }
+        public bool? Isadmin { get; set; }
     }
 }

@@ -54,7 +54,9 @@ namespace BestPrinterBilling.Controllers
         // GET: Machines/Create
         public IActionResult Create()
         {
-            return View();
+            MachineClientViewModel machineClientVM = new MachineClientViewModel();
+                  
+            return View(machineClientVM);
         }
 
         // POST: Machines/Create
