@@ -27,6 +27,7 @@ namespace BestPrinterBilling.ViewComponents
             sidebars.Add(ModuleHelper.AddHeader("MAIN NAVIGATION"));
             sidebars.Add(ModuleHelper.AddModule(ModuleHelper.Module.Home));
             sidebars.Add(ModuleHelper.AddModule(ModuleHelper.Module.DataEntry, Tuple.Create(0, 0, 0)));
+            sidebars.Add(ModuleHelper.AddModule(ModuleHelper.Module.Customers, Tuple.Create(0, 0, 0)));
           
 
          /*   sidebars.Add(ModuleHelper.AddTree("Account"));

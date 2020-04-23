@@ -20,7 +20,8 @@ namespace BestPrinterBilling.Common
             SuperAdmin,
             Role,
             UserLogs,
-            DataEntry
+            DataEntry,
+            Customers
           
         }
 
@@ -65,13 +66,22 @@ namespace BestPrinterBilling.Common
                     return new SidebarMenu
                     {
                         Type = SidebarMenuType.Link,
-                        Name = "Data Entry",
+                        Name = "Meter reads",
                         IconClassName = "fa fa-list-alt",
                         URLPath = "/Machines",
                         LinkCounter = counter,
                     };
-                
-                
+
+                case Module.Customers:
+                    return new SidebarMenu
+                    {
+                        Type = SidebarMenuType.Link,
+                        Name = "Customers",
+                        IconClassName = "fa fa-users",
+                        URLPath = "/Customers",
+                        LinkCounter = counter,
+                    };
+
                 case Module.Login:
                     return new SidebarMenu
                     {

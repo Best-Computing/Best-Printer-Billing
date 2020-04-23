@@ -1,6 +1,3 @@
- $(document).ready(function () {
-        $('#tbllist').DataTable(
-            {
-                "scrollX": true
-                  });
-    });
+$(document).ready(function () {
+    $('#tbllist').DataTable();
+});

@@ -3,10 +3,16 @@
 @{
     ViewData["Title"] = "Data Entry";
 }
-<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
-<script type="text/javascript" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
-<script type="text/javascript" src="~/js/datatables.js"></script>
-<div class="container-fluid">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
+<script>
+    $(document).ready(function () {
+        $('#tbllist').DataTable();
+    });
+</script>
+<script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+
+<div class="wrapper">
+   
     <div class="row">
         <div class="col-sm">
             <h4 class="text-sm-left">
@@ -28,7 +34,7 @@
 <div class="box">
 
     <div class="box-body">
-        <table id="tbllist" class="table table-hover">
+        <table id="tbllist" >
 
             <thead>
                 <tr>

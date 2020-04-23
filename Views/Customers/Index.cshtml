@@ -1,0 +1,103 @@
+﻿@model IEnumerable<BestPrinterBilling.Models.TblUsers>
+
+@{
+    ViewData["Title"] = "Customers";
+}
+
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
+
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
+<script type="text/javascript" src="~/js/datatables.js"></script>
+<div class="wrapper">
+
+    <div class="row">
+        <div class="col-sm">
+            <h4 class="text-sm-left">
+                <a asp-action="Create" class="btn btn-info"><i class="fa fa-plus"></i> Add new customer </a>
+
+            </h4>
+
+        </div>
+
+        <div class="col-sm">
+            <h4 class="text-sm-right">
+
+                <a asp-action="Create" class="btn btn-info"><i class="fa fa-cloud"></i> Export to Xero</a>
+            </h4>
+        </div>
+    </div>
+</div>
+
+        <table id="tbllist">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Company)
+                    </th>
+                    @*
+                            <th>
+                                @Html.DisplayNameFor(model => model.Username)
+                            </th>
+
+                                <th>
+                            @Html.DisplayNameFor(model => model.Password)
+                        </th>
+                    *@
+                    <th>
+                        @Html.DisplayNameFor(model => model.ContactName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Email)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Phone)
+                    </th>
+                    @*
+                        <th>
+                            @Html.DisplayNameFor(model => model.Isadmin)
+                        </th>
+                    *@
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Company)
+                        </td>
+                        @*
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Username)
+                                </td>
+
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Password)
+                            </td>
+                        *@
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ContactName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Email)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Phone)
+                        </td>
+                        @*
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Isadmin)
+                            </td>
+                        *@
+                        <td>
+                            @Html.ActionLink("", "Details", "Customers", new { id = item.UserId }, new { @class = "fa fa-eye" })
+
+                            @Html.ActionLink("", "Edit", "Customers", new { id = item.UserId }, new { @class = "fa fa-pencil" })
+
+                            @Html.ActionLink("", "Delete", "Customers", new { id = item.UserId }, new { @class = "fa fa-trash" })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>

@@ -150,7 +150,7 @@ namespace BestPrinterBilling.Data
                 entity.Property(e => e.UserId).HasColumnName("USER_ID");
 
                 entity.Property(e => e.Company)
-                    .IsRequired()
+             
                     .HasColumnName("COMPANY");
 
                 entity.Property(e => e.ContactName)

@@ -1,16 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
+﻿using BestPrinterBilling.Common.Attributes;
 using BestPrinterBilling.Data;
 using BestPrinterBilling.Models;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Reflection;
+using System.Threading.Tasks;
 
 namespace BestPrinterBilling.Controllers
 {
-    public class Machines : Controller
+    [Authorize]
+
+    public class Machines : BaseController
     {
         private readonly bestprinterbillingdbContext _context;
 
@@ -20,22 +25,24 @@ namespace BestPrinterBilling.Controllers
             _context = context;
         }
 
-     /*  public ActionResult MachineClientViewModel()
-        {
-            
-            MachineClientViewModel machineClientVM = new MachineClientViewModel();
-            machineClientVM.allMachines = _context
-        }
-      */
+        /*  public ActionResult MachineClientViewModel()
+           {
+
+               MachineClientViewModel machineClientVM = new MachineClientViewModel();
+               machineClientVM.allMachines = _context
+           }
+         */
         // GET: Machines
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
-            return View(await _context.TblMachine.ToListAsync());
+            AddPageHeader("Meter Reads", "");
+            return View();
         }
 
         // GET: Machines/Details/5
         public async Task<IActionResult> Details(int? id)
         {
+            AddPageHeader("Meter Reads Information", "");
             if (id == null)
             {
                 return NotFound();
@@ -54,6 +61,7 @@ namespace BestPrinterBilling.Controllers
         // GET: Machines/Create
         public IActionResult Create()
         {
+            AddPageHeader("Add new meter reads entry", "");
             MachineClientViewModel machineClientVM = new MachineClientViewModel();
                   
             return View(machineClientVM);
@@ -66,6 +74,7 @@ namespace BestPrinterBilling.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("MachineId,Serialnum,Devicemodel,UserId,PriceBw,PriceClr,PriceClrlrg,PrevRdsBw,PrevRdsClr,PrevRdsClrlrg,CurRdsBw,CurRdsClr,CurRdsClrlrg,QtyBw,QtyClr,QtyClrlrg,PrevInvoiceId,PrevInvoiceTotal,CurInvoiceId,CurInvoiceTotal,Status,ContractStart,ContractEnd,CollectionMethod,Location,MinCharge,IsActive,PrintCountBw,PrintCountColor,PrintCountLarge")] TblMachine tblMachine)
         {
+            AddPageHeader("Add new meter reads entry", "");
             if (ModelState.IsValid)
             {
                 _context.Add(tblMachine);
@@ -78,6 +87,7 @@ namespace BestPrinterBilling.Controllers
         // GET: Machines/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
+            AddPageHeader("Edit meter reads entry", "");
             if (id == null)
             {
                 return NotFound();
@@ -98,6 +108,7 @@ namespace BestPrinterBilling.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("MachineId,Serialnum,Devicemodel,UserId,PriceBw,PriceClr,PriceClrlrg,PrevRdsBw,PrevRdsClr,PrevRdsClrlrg,CurRdsBw,CurRdsClr,CurRdsClrlrg,QtyBw,QtyClr,QtyClrlrg,PrevInvoiceId,PrevInvoiceTotal,CurInvoiceId,CurInvoiceTotal,Status,ContractStart,ContractEnd,CollectionMethod,Location,MinCharge,IsActive,PrintCountBw,PrintCountColor,PrintCountLarge")] TblMachine tblMachine)
         {
+            AddPageHeader("Edit meter reads entry", "");
             if (id != tblMachine.MachineId)
             {
                 return NotFound();
@@ -129,6 +140,7 @@ namespace BestPrinterBilling.Controllers
         // GET: Machines/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
+            AddPageHeader("Delete meter reads entry", "");
             if (id == null)
             {
                 return NotFound();
@@ -149,6 +161,7 @@ namespace BestPrinterBilling.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
+            AddPageHeader("Deleted meter reads entry", "");
             var tblMachine = await _context.TblMachine.FindAsync(id);
             _context.TblMachine.Remove(tblMachine);
             await _context.SaveChangesAsync();
