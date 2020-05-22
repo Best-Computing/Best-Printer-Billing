@@ -10,10 +10,11 @@ using System.Reflection;
 
 namespace BestPrinterBilling.Controllers
 {
+    [Authorize]
+
     public class HomeController : BaseController
     {
-        [Authorize]
-
+        
         [HelpDefinition]
         public IActionResult Index()
         {

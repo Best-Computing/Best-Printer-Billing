@@ -17,7 +17,7 @@
         <div class="col-sm">
             <h4 class="text-sm-left">
                 <a asp-action="Create" class="btn btn-info"><i class="fa fa-plus"></i> Add new entry </a>
-                <a asp-action="Create" class="btn btn-info"><i class="fa fa-sync"></i> Sync</a>
+                <a asp-action="Index" class="btn btn-info"><i class="fa fa-sync"></i> Sync</a>
             </h4>
 
         </div>
@@ -26,7 +26,7 @@
         <div class="col-sm">
             <h4 class="text-sm-right">
 
-                <a asp-action="Create" class="btn btn-info"><i class="fa fa-cloud"></i> Export to Xero</a>
+                <a asp-action="Index" class="btn btn-info"><i class="fa fa-cloud"></i> Export to Xero</a>
             </h4>
         </div>
     </div>
@@ -34,7 +34,7 @@
 <div class="box">
 
     <div class="box-body">
-        <table id="tbllist" >
+        <table class="table table-responsive table-hover" >
 
             <thead>
                 <tr>
@@ -98,74 +98,72 @@
                 <tr>
                     <td>
                         @* @Html.DisplayFor(modelItem => item.Location) *@
-                        Broome
+                     
                     </td>
-                    <td>
-                        Aarnja
-                    </td>
+                   
 
                     <td>
                         @*   @Html.DisplayFor(modelItem => item.Devicemodel) *@
-                        DC5C4475
+                     
 
                     </td>
                     <td>
-                        725198
+                       
 
                         @*    @Html.DisplayFor(modelItem => item.Serialnum) *@
                     </td>
                     <td>
-                        0.0087125
+                      
                     </td>
                     <td>
                         @* @Html.DisplayFor(modelItem => item.PrevRdsBw) *@
-                        59156
+                   
                     </td>
                     <td>
 
                         @*@Html.DisplayFor(modelItem => item.PrevRdsClr) *@
-                        260534
+                       
 
                     </td>
                     <td>
                         @* @Html.DisplayFor(modelItem => item.PrevRdsClrlrg) *@
-                        5316
+                       
                     </td>
                     <td>
                         @*     @Html.DisplayFor(modelItem => item.CurRdsBw) *@
-                        61573
+                       
 
                     </td>
                     <td>
                         @* @Html.DisplayFor(modelItem => item.CurRdsClr) *@
-                        264559
+                    
                     </td>
                     <td>
                         @* @Html.DisplayFor(modelItem => item.CurRdsClrlrg) *@
-                        5315
+                      
                     </td>
 
                     <td>
                         @*total BW print count to this period*@
-                        2417
+                     
 
                     </td>
                     <td>
                         @*total CLR print count to this period*@
-                        4025
+                        
                     </td>
                     <td>
                         @*total LARGE print count to this period*@
-                        -1
+                       
                     </td>
 
                     <td>
                         @*total to charge*@
-                        $ 21.06
+                    
                     </td>
                     <td>
                         @*minimum to charge*@
-                        82.00
+                     
                     </td>
                     @*
                         <td>

@@ -26,7 +26,7 @@ namespace BestPrinterBilling.Data
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseSqlServer("Server=tcp:bestprinterbilling-srv.database.windows.net,1433;Initial Catalog=bestprinterbilling-db;Persist Security Info=False;User ID=bpb-admin;Password=Dy6zjFS_bUHwwE!fAb5Fn*;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+                optionsBuilder.UseSqlServer("Server=bestprinterbilling-srv.database.windows.net,1433;Initial Catalog=bestprinterbilling-db;Persist Security Info=False;User ID=bpb-admin;Password=Dy6zjFS_bUHwwE!fAb5Fn*;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
             }
         }
 
@@ -39,7 +39,7 @@ namespace BestPrinterBilling.Data
 
                 entity.Property(e => e.LocationId).HasColumnName("LocationID");
 
-                entity.Property(e => e.Location)
+                entity.Property(e => e.LocationName)
                     .IsRequired()
                     .HasMaxLength(255)
                     .IsUnicode(false);
@@ -60,6 +60,10 @@ namespace BestPrinterBilling.Data
                     .IsRequired()
                     .HasColumnName("COLLECTION_METHOD");
 
+                entity.Property(e => e.ContactPerson)
+                    .HasMaxLength(255)
+                    .IsUnicode(false);
+
                 entity.Property(e => e.ContractEnd)
                     .HasColumnName("CONTRACT_END")
                     .HasColumnType("smalldatetime");
@@ -79,6 +83,10 @@ namespace BestPrinterBilling.Data
                 entity.Property(e => e.CurRdsClr).HasColumnName("CUR_RDS_CLR");
 
                 entity.Property(e => e.CurRdsClrlrg).HasColumnName("CUR_RDS_CLRLRG");
+
+                entity.Property(e => e.Customer)
+                    .HasMaxLength(255)
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Devicemodel)
                     .IsRequired()
@@ -119,6 +127,7 @@ namespace BestPrinterBilling.Data
                     .HasColumnName("PrintCountBW")
                     .HasMaxLength(255);
 
+
                 entity.Property(e => e.PrintCountColor).HasMaxLength(255);
 
                 entity.Property(e => e.PrintCountLarge).HasMaxLength(255);
@@ -150,7 +159,7 @@ namespace BestPrinterBilling.Data
                 entity.Property(e => e.UserId).HasColumnName("USER_ID");
 
                 entity.Property(e => e.Company)
-             
+                    .IsRequired()
                     .HasColumnName("COMPANY");
 
                 entity.Property(e => e.ContactName)

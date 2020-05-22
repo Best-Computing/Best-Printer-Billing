@@ -7,11 +7,15 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using BestPrinterBilling.Data;
 using BestPrinterBilling.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BestPrinterBilling.Controllers
 {
+    [Authorize]
     public class Customers : BaseController
     {
+      
+
         private readonly bestprinterbillingdbContext _context;
 
         public Customers(bestprinterbillingdbContext context)

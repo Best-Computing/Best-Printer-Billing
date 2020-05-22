@@ -6,7 +6,7 @@ namespace BestPrinterBilling.Models
     public partial class TblMachine
     {
         public int MachineId { get; set; }
-        public int Serialnum { get; set; }
+        public string Serialnum { get; set; }
         public string Devicemodel { get; set; }
         public int UserId { get; set; }
         public double PriceBw { get; set; }
@@ -36,5 +36,7 @@ namespace BestPrinterBilling.Models
         public string PrintCountColor { get; set; }
         public string PrintCountLarge { get; set; }
         public string Title { get; set; }
+        public string Customer { get; set; }
+        public string ContactPerson { get; set; }
     }
 }
